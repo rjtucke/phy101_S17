@@ -1,0 +1,49 @@
+#% Do not delete the line below; configure depends on this
+#  \DeclareLaTeXClass{Test/Quiz}
+
+#$Id:  $
+
+input article.layout
+NoStyle Date
+NoStyle Title
+Style Date
+        Margin                Dynamic
+        LatexType             Command
+        LatexName             thedate
+        LabelSep              xxx
+        ParSkip               0.4
+        TopSep                0.9
+        BottomSep             0.5
+        ParSep                1
+        Align                 Left
+        AlignPossible         Left
+        LabelType             No_Label
+        Font
+          Size                Normal
+        EndFont
+        Preamble
+            
+        EndPreamble
+        
+End
+
+Style Title
+        Margin                Static
+        LatexType             Command
+        LatexName             thetitle
+        ParSkip               0.4
+        ItemSep               0
+        TopSep                0
+        BottomSep             1
+        ParSep                1
+        Align                 Center
+        AlignPossible         Center
+        LabelType             No_Label
+        Font
+          Size                Huge
+        EndFont
+        Preamble
+
+        EndPreamble
+        
+End
