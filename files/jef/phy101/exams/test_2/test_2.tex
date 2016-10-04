@@ -1,333 +1,4 @@
-%% LyX 2.1.3 created this file.  For more info, see http://www.lyx.org/.
-%% Do not edit unless you really know what you are doing.
-\documentclass[english]{exam}
-\usepackage[T1]{fontenc}
-\usepackage[latin1]{inputenc}
-\usepackage{float}
-\usepackage{amstext}
-\usepackage{graphicx}
-\usepackage{setspace}
-\onehalfspacing
-
-\makeatletter
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Textclass specific LaTeX commands.
-
-            
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
-%% LyX 1.4.2 created this file.  For more info, see http://www.lyx.org/.
-%% Do not edit unless you really know what you are doing.
-
-
-
-\usepackage{float,calc,color}
-
-\makeatletter
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LyX specific LaTeX commands.
-%% A simple dot to overcome graphicx limitations
-
-%% Frontmatter vars
-\def\thetitle#1{\gdef\@thetitle{#1}}
-\def\thedate#1{\gdef\@thedate{#1}}
-
-
-
-
-% ******************************************************************
-% *** SPACE CONTROL ************************************************
-
-\def\vf{\vfill}
-\def\vs{\vspace{1pc}}
-\def\hs{\hspace{1in}}
-
-\def\blank{$\,$ \underline{\hspace{1in}} $\,$}
-\def\Blank{$\,$ \underline{\hspace{1.5in}} $\,$}
-
-\def\cpg{\clearpage}
-
-% ******************************************************************
-% *** FORMATTING ***************************************************
-
-\def\und{\underline}
-
-% ******************************************************************
-% *** ENGLISH ABBREVIATIONS ****************************************
-
-\def\ie{\mbox{{\it i.e.} }}
-\def\eg{\mbox{{\it e.g.} }}
-\def\etc{\mbox{{\it et cetera} }}
-
-% ******************************************************************
-% *** MATH SHORTCUTS ***********************************************
-
-\def\ds{\displaystyle}
-
-\def\ddx{\ds \frac{d}{dx}}
-\def\ddt{\ds \frac{d}{dx}}
-\newcommand{\dd}[2]{\ds \frac{d{#1}}{d{#2}}}
-
-\def\pitch{\mathbin{\frown \! \! \! \! \mid \, \, \,}}  % replace by \pitchfork if amssymb is working
-
-\def\qed{\rule[-.23ex]{1.6ex}{1.6ex}}
-
-% ******************************************************************
-% *** TABLE SHORTHAND **********************************************
-
-\newcommand{\gotable}[3]
-      {\begin{table}[h] 
-       \begin{center}
-       \addtolength{\tabcolsep}{#1mm}
-       \renewcommand{\arraystretch}{#2}
-       \begin{tabular}{#3}}
-
-\newcommand{\stoptable}
-      {\end{tabular}
-       \end{center}
-       \end{table}}
-       
-% ******************************************************************
-% *** MINIPAGE SHORTHAND *******************************************
-
-\newcommand{\twofig}[4]
-   {\begin{figure}[h]
-      \begin{minipage}[t]{3in}
-        \begin{center}
-        {\Large \bf (#1) $\!\!\!\!\!\!\!\!\!$}
-        \epsfig{file=#2,height=2in,width=2in} 
-        \end{center}
-      \end{minipage}
-      \hfill
-      \begin{minipage}[t]{3in}
-        \begin{center}
-        {\Large \bf (#3) $\!\!\!\!\!\!\!\!\!$}
-        \epsfig{file=#4,height=2in,width=2in}  
-        \end{center}
-      \end{minipage}
-    \end{figure}}
-
-\newcommand{\threefig}[6]
-   {\begin{figure}[h]
-      \begin{minipage}[t]{2in}
-        \begin{center}
-        {\large \bf (#1) $\!\!\!\!\!\!\!\!\!$}
-        \epsfig{file=#2,height=1.6in,width=1.6in}
-        \end{center}
-      \end{minipage}
-      \hfill
-      \begin{minipage}[t]{2in}
-        \begin{center}
-        {\large \bf (#3) $\!\!\!\!\!\!\!\!\!$}
-        \epsfig{file=#4,height=1.6in,width=1.6in}
-        \end{center}
-      \end{minipage}
-      \hfill
-      \begin{minipage}[t]{2in}
-        \begin{center}
-        {\large \bf (#5) $\!\!\!\!\!\!\!\!\!$}
-        \epsfig{file=#6,height=1.6in,width=1.6in}
-        \end{center}
-      \end{minipage}
-    \end{figure}}
-         
-\newcommand{\twoup}[2]
-   {\begin{minipage}{3in}
-      \begin{center}
-      #1 
-      \end{center}
-    \end{minipage}
-    \hfill
-    \begin{minipage}{3in}
-      \begin{center}
-      #2 
-      \end{center}
-    \end{minipage}}         
-
-% ******************************************************************
-% *** TESTPOINTS SHORTHAND *****************************************
-
-\def\bpz{\begin{problem}{0}}
-\newcommand{\bp}[1]{\begin{problem}{#1}}
-
-\def\npz{\newpart{0}}
-\newcommand{\np}[1]{\newpart{#1}}
-
-\def\ep{\end{problem}}
-
-%\newcommand{\probpart}...make later
-\newcommand{\prob}[1]{\setcounter{problemnum}{#1} \Large \bf \theproblemnum .}
-
-
-%------------------------------------------------------------------
-% PROBLEM, PART, AND POINT COUNTING...
-
-% Create the problem number counter.  Initialize to zero.
-\newcounter{problemnum}
-
-% Specify that problems should be labeled with arabic numerals.
-\renewcommand{\theproblemnum}{\arabic{problemnum}}
-
-
-% Create the part-within-a-problem counter, "within" the problem counter.
-% This counter resets to zero automatically every time the PROBLEMNUM counter
-% is incremented.
-\newcounter{partnum}[problemnum]
-
-% Specify that parts should be labeled with lowercase letters.
-\renewcommand{\thepartnum}{\alph{partnum}}
-
-% Make a counter to keep track of total points assigned to problems...
-\newcounter{totalpoints}
-
-% Make counters to keep track of points for parts...
-\newcounter{curprobpts}         % Points assigned for the problem as a whole.
-\newcounter{totalparts}         % Total points assigned to the various parts.
-
-% Make a counter to keep track of the number of points on each page...
-\newcounter{pagepoints}
-% This counter is reset each time a page is printed.
-
-% This "program" keeps track of how many points appear on each page, so that
-% the total can be printed on the page itself.  Points are added to the total
-% for a page when the PART (not the problem) they are assigned to is specified.
-% When a problem without parts appears, the PAGEPOINTS are incremented directly
-% from the problem as a whole (CURPROBPTS).
-
-
-%---------------------------------------------------------------------------
-
-
-% The \problem environment first checks the information about the previous
-% problem.  If no parts appeared (or if they were all assigned zero points,
-% then it increments TOTALPOINTS directly from CURPROBPTS, the points assigned
-% to the last problem as a whole.  If the last problem did contain parts, it
-% checks to make sure that their point values total up to the correct sum.
-% It then puts the problem number on the page, along with the points assigned
-% to it.
-
-\newenvironment{problem}[1]{
-% STATEMENTS TO BE EXECUTED WHEN A NEW PROBLEM IS BEGUN:
-%
-% Increment the problem number counter, and set the current \ref value to that
-% number.
-\refstepcounter{problemnum}
-%
-% Add some vspace to separate from the last problem.
-\vspace{0.15in} \par
-%
-\setcounter{curprobpts}{#1} \setcounter{totalparts}{0}  % Reset counters.
-%
-% Now put in the "announcement" on the page.
-{\Large \bf \theproblemnum. \normalsize ({\it \arabic{curprobpts} point\null\ifnum \value{curprobpts} = 1\else s\fi}\/)}
-}{
-% STATEMENTS TO BE EXECUTED WHEN AN OLD PROBLEM IS ENDED:
-%
-% If no parts to problem, then increment TOTALPOINTS and PAGEPOINTS for the
-% entire problem at once.
-\ifnum \value{totalparts} = 0
-        \addtocounter{totalpoints}{\value{curprobpts}}  % Add pts to total.
-        \addtocounter{pagepoints}{\value{curprobpts}}   % Add pts to page total.
-%
-% If there were parts for the problem, then check to make sure they total up
-% to the same number of points that the problem is worth. Issue a warning
-% if not.
-\else \ifnum \value{totalparts} = \value{curprobpts}
-        \else \typeout{}
-        \typeout{!!!!!!!   POINT ACCOUNTING ERROR   !!!!!!!!}
-        \typeout{PROBLEM [\theproblemnum] WAS ALLOCATED \arabic{curprobpts} POINTS,}
-        \typeout{BUT CONTAINS PARTS TOTALLING \arabic{totalparts} POINTS!}
-        \typeout{}
-        \fi
-\fi
-}
-
-
-%---------------------------------------------------------------------------
-
-
-% The \newpart command increments the part counter and displays an appropriate
-% lowercase letter to mark the part.  It adds points to the point counter
-% immediately.  If 0 points are specified, no point announcement is made.
-% Otherwise, the announcement is in scriptsize italics.
-
-\newcommand{\newpart}[1]
-{
-\refstepcounter{partnum}        % Set the current \ref value to the part number.
-\hspace{0.25in}         % Indent the part by a quarter inch.
-%
-% If points are to be printed for this problem (signaled by point value > 0),
-% then put them in in scriptsize italics.
-\ifnum #1 > 0
-        \makebox[0.5in][l]{{\bf \thepartnum.} {\bf ({\it #1 pt\ifnum #1 = 1\else s\fi\/}) \,\,}}
-\else
-        \makebox[0.25in][l]{({\bf \thepartnum})}
-\fi
-%
-\hspace{0.1in}          % Lead the material away from the part "number".
-%
-\addtocounter{totalparts}{#1}   % Add points to totalparts for this problem.
-\addtocounter{pagepoints}{#1}   % Add points to total for this page.
-\addtocounter{totalpoints}{#1}  % Add points to total for entire test.
-}
-
-
-%---------------------------------------------------------------------------
-
-
-
-% Just in case you want to skip some numbers in your test...
-
-\newcommand{\skipproblem}[1]{\addtocounter{problemnum}{#1}}
-
-
-
-%---------------------------------------------------------------------------
-
-
-% The \showpoints command simply gives a count of the total points read in up to
-% the location at which the command is placed.  Typically, one places one
-% \showpoints command at the end of the latex file, just prior to the
-% \end{document} command.  It can appear elsewhere, however.
-
-\newcommand{\showpoints}
-{
-\typeout{}  
-\typeout{====> A TOTAL OF \arabic{totalpoints} POINTS WERE READ.}
-\typeout{}
-}
-
-
-%---------------------------------------------------------------------------
-
-\newcommand{\frontmatter}{
-
-% *** COVER *** 
-
-\centerline{\huge \bf \@thetitle}
-\begin{center} PHY101 \\ Arizona State University
-\end{center}
-
-\vf \vf
-
-\@thedate \hspace*{1.5in} \bf Name: \hrulefill\\
-\hspace*{3.1in}{\mbox{\tiny by writing my name I swear by the honor code}}\\
-
-\vf \vf \vf
-
-{\bf Read all of the following information before starting the exam:}
-\vs
-
-\begin{itemize}
-\item Calculators are allowed.
-\item Don't panic.
-\end{itemize}
-
-\vf \vf \vf
-
-\cpg
-
-
-}
+\documentclass{exam}
 
 \oddsidemargin=0in
 \evensidemargin=0in
@@ -335,384 +6,296 @@
 \topmargin=-.5in
 \textheight=9in
 \parindent=0in
-
 \pagestyle{empty}
 
-\makeatother
-
-\makeatother
-
-\usepackage{babel}
 \begin{document}
-
-\thetitle{Test 2: Advanced Mechanics}
-
-
-\thedate{10/05/2016}
-
-\frontmatter
-
 \begin{center}
-\emph{This page intentionally left blank.}
-\par\end{center}
+  Test 2: Advanced Mechanics\\
+
+  PHY101 - Fall 2016\\
+\end{center}
+Name:\\
+
+\begin{questions}
+
+\question A slowly moving ship can have a greater momentum than a fast-moving racing car when
+\begin{choices}
+  \choice its mass is greater than the mass of the car.
+  \choice its speed is greater than the speed of the car.
+  \choice it drifts toward a distant port.
+  \choice its mass times velocity is greater than that of the car.
+\end{choices}
+\vfill{}
+
+\question An impulse can be increased by
+\begin{choices}
+  \choice decreasing the force and decreasing the time interval.
+  \choice maintaining the force and decreasing the time interval.
+  \choice decreasing the force and maintaining time interval.
+  \choice increasing the force or increasing the time interval.
+\end{choices}
+\vfill{}
+
+\question How is the impulse-momentum relationship related to Newton's second law?
+\begin{choices}
+  \choice \(F=m\,a=m\frac{\Delta v}{\Delta t}\), so \(F\,t=\Delta\left(m\,v\right)\)
+  \choice \(F=m\,a=m\Delta v\,\Delta t\), so \(\frac{F}{t}=\Delta\left(m\,v\right)\)
+  \choice \(F=m\,a=m\frac{\Delta v}{\Delta t}\), so \(F=\Delta\left(m\,v\right)\)
+  \choice \(F=m\,a=m\frac{\Delta v}{\Delta t}\), so \(F\,t=\Delta\left(m\,v\right)\,t\)
+\end{choices}
+\vfill{}
+
+\question Padded dashboards in cars are safer in an accident than non-padded ones 
+          because passengers hitting the dashboard encounter
+\begin{choices}
+  \choice lengthened time of contact.
+  \choice increased momentum.
+  \choice shorter time of contact.
+  \choice decreased impulse.
+\end{choices}
+\vfill{}
+
+\question Is it correct to say that, if no net impulse is exerted on a system, then no change in the momentum of the system will occur? 
+\begin{choices}
+  \choice Almost always.
+  \choice Sometimes. 
+  \choice Yes, always. 
+  \choice No, never. 
+\end{choices}
+\vfill{}
+
+\question Two billiard balls having the same mass and speed roll toward each other. What is their combined momentum after they meet? 
+\begin{choices}
+  \choice zero
+  \choice half the sum of their original momentums
+  \choice twice the sum of their original momentums
+  \choice need more information
+\end{choices}
+\vfill{}
 
 \newpage{}
 
-\bp{1}
-A slowly moving ship can have a greater momentum than a fast-moving racing car when\\
+\question Fatuma's motorcycle (which has a mass of 100 kilograms) slowly rolls off the edge of a cliff and falls for three seconds before reaching the bottom of a gully. Its momentum upon hitting the ground is
 \begin{choices}
-\choice its mass is greater than the mass of the car.
-\choice its speed is greater than the speed of the car.
-\choice it drifts toward a distant port.
-\choice its mass times velocity is greater than that of the car.
+  \choice 1,000 kg m/s.
+  \choice 3,000 kg m/s.
+  \choice 2,000 kg m/s.
+  \choice 4,000 kg m/s.
+  \choice 9,000 kg m/s.
 \end{choices}
 \vfill{}
-\ep
 
-\bp{1}
-An impulse can be increased by\\
+\question  A force sets an object in motion. When the force is multiplied by the time of its application, we call the quantity impulse, and an impulse changes the momentum of that object. What do we call the quantity force multiplied by distance? 
 \begin{choices}
-\choice decreasing the force and decreasing the time interval.
-\choice maintaining the force and decreasing the time interval.
-\choice decreasing the force and maintaining time interval.
-\choice increasing the force or increasing the time interval.
+  \choice Work 
+  \choice Impulse
+  \choice Power
+  \choice Heat
 \end{choices}
 \vfill{}
-\ep
 
-\bp{1}
-How is the impulse-momentum relationship related to Newton's second law?\\
+\question  What is the unit of work? 
 \begin{choices}
-\choice $F=m\,a=m\nicefrac{\Delta v}{\Delta t}$, so $F\,t=\Delta\left(m\,v\right)$
-\choice $F=m\,a=m\Delta v\,\Delta t$, so $\nicefrac{F}{t}=\Delta\left(m\,v\right)$
-\choice $F=m\,a=m\nicefrac{\Delta v}{\Delta t}$, so $F=\Delta\left(m\,v\right)$
-\choice $F=m\,a=m\nicefrac{\Delta v}{\Delta t}$, so $F\,t=\Delta\left(m\,v\right)\,t$
+  \choice kg m/s 
+  \choice watt
+  \choice newton
+  \choice joule
 \end{choices}
 \vfill{}
-\ep
 
-\bp{1}
-\\
+\question Xavier goes for a jog. When he doubles his speed, how much more kinetic energy does he have?
 \begin{choices}
-\choice 
-\choice 
-\choice 
-\choice 
-\choice 
+  \choice Four times as much. 
+  \choice Half as much. 
+  \choice The same kinetic energy. 
+  \choice Twice as much. 
 \end{choices}
 \vfill{}
-\ep
 
-\bp{1}
-\\
+\question Yuanhao bench-presses two cars, one in each hand. If one car is twice as massive as the other, compare their gains of potential energy.  
 \begin{choices}
-\choice 
-\choice 
-\choice 
-\choice 
-\choice 
+  \choice The car with twice the mass has half the potential energy. 
+  \choice The car with twice the mass has twice the potential energy. 
+  \choice The less massive car has equal and opposite potential energy compared to the more massive car. 
+  \choice Both cars have the same potential energy. 
 \end{choices}
 \vfill{}
-\ep
 
-\bp{1}
-\\
+\question  What will the kinetic energy of a pile driver ram be if it starts from rest and undergoes a 10 kJ decrease in potential energy? 
 \begin{choices}
-\choice 
-\choice 
-\choice 
-\choice 
-\choice 
+  \choice 0 kJ 
+  \choice -10 kJ 
+  \choice 10 kJ 
+  \choice 5 kJ 
 \end{choices}
 \vfill{}
-\ep
 
-\bp{1}
-\\
-\begin{choices}
-\choice 
-\choice 
-\choice 
-\choice 
-\choice 
-\end{choices}
-\vfill{}
-\ep
+\newpage{}
 
-\bp{1}
-\\
+\question David accelerates on his motor scooter. If his speed doubles, which of the following also doubles?
 \begin{choices}
-\choice 
-\choice 
-\choice 
-\choice 
-\choice 
+  \choice momentum
+  \choice acceleration
+  \choice kinetic energy
+  \choice all of the above
 \end{choices}
 \vfill{}
-\ep
 
-\bp{1}
-\\
+\question Mady lifts a 50-kg sack a vertical distance of 2 m. Alex lifts a 25-kg sack a vertical distance of 4 m. Which student's sack required more work in order to lift it?
 \begin{choices}
-\choice 
-\choice 
-\choice 
-\choice 
-\choice 
+  \choice Both required the same 1000 J. 
+  \choice Mady's 50 kg sack required more work. 
+  \choice Alex's 25 kg sack required more work. 
 \end{choices}
 \vfill{}
-\ep
 
-\bp{1}
-\\
+\question How much work is done on a satellite in a circular orbit about Earth?  
 \begin{choices}
-\choice 
-\choice 
-\choice 
-\choice 
-\choice 
+  \choice Zero 
+  \choice The mass of the satellite times the circumference of the orbit 
+  \choice The weight of the satellite times the circumference of the orbit 
+  \choice The gravity force on the satellite times the diameter of the orbit 
 \end{choices}
 \vfill{}
-\ep
 
-\bp{1}
-\\
+\question The work that is done when twice the load is lifted twice the distance is 
 \begin{choices}
-\choice 
-\choice 
-\choice 
-\choice 
-\choice 
+  \choice three times as much 
+  \choice twice as much. 
+  \choice four times as much. 
+  \choice the same. 
 \end{choices}
 \vfill{}
-\ep
 
-\bp{1}
-\\
+\question  If Anthony pushes a crate horizontally with 100 N across a 10-m factory floor and the friction between the crate and the floor is a steady 70 N, how much kinetic energy does the crate gain? 
 \begin{choices}
-\choice 
-\choice 
-\choice 
-\choice 
-\choice 
+  \choice 400 J 
+  \choice 1,000 J 
+  \choice 300 J 
+  \choice 700 J 
 \end{choices}
 \vfill{}
-\ep
 
-\bp{1}
-\\
+\question A primary difference between momentum and kinetic energy is  
 \begin{choices}
-\choice 
-\choice 
-\choice 
-\choice 
-\choice 
+  \choice momenta can cancel; kinetic energy cannot.
+  \choice either of the above depending on circumstances
+  \choice kinetic energy can cancel; momenta cannot.
+  \choice none of the above
 \end{choices}
 \vfill{}
-\ep
 
-\bp{1}
-\\
-\begin{choices}
-\choice 
-\choice 
-\choice 
-\choice 
-\choice 
-\end{choices}
-\vfill{}
-\ep
+\newpage{}
 
-\bp{1}
-\\
+\question When Kelly whirls a can at the end of a string in a circular path, what is the direction of the force she exerts on the can?  
 \begin{choices}
-\choice 
-\choice 
-\choice 
-\choice 
-\choice 
+  \choice Tangent to the circle and opposite in direction to the motion of the can 
+  \choice Tangent to the circle in the direction of motion of the can 
+  \choice Toward the center of the circle 
+  \choice Radially outward from the center of the circle 
 \end{choices}
 \vfill{}
-\ep
 
-\bp{1}
-\\
+\question If Rachel is not wearing a seat belt in a car that rounds a curve, and she slides across her seat and slams against a car door, what kind of force is responsible for her slide: centripetal, centrifugal, or no force?  
 \begin{choices}
-\choice 
-\choice 
-\choice 
-\choice 
-\choice 
+  \choice It is centripetal force, but only as viewed by someone inside the car. 
+  \choice It is centrifugal force as viewed by someone outside the car. 
+  \choice Centripetal force 
+  \choice There is no force as viewed by someone outside the car. To them Rachel moves in a straight line. 
 \end{choices}
 \vfill{}
-\ep
 
-\bp{1}
-\\
+\question What happens to the force of attraction between two planets when the distance between them is doubled? 
 \begin{choices}
-\choice 
-\choice 
-\choice 
-\choice 
-\choice 
+  \choice The force remains the same. 
+  \choice The force decreases to half. 
+  \choice The force decreases to one quarter. 
+  \choice The force doubles. 
 \end{choices}
 \vfill{}
-\ep
 
-\bp{1}
-\\
+\question How far must Kyle travel to escape Earth's gravitational field?
 \begin{choices}
-\choice 
-\choice 
-\choice 
-\choice 
-\choice 
+  \choice to a region above Earth's atmosphere
+  \choice to a region beyond the solar system
+  \choice forget it; he can't travel far enough.
+  \choice to a region well beyond the Moon
 \end{choices}
 \vfill{}
-\ep
 
-\bp{1}
-\\
+\question  What is the magnitude of Earth's gravitational force on Nicole's rabbit (1-kg mass) at Earth's surface? 
 \begin{choices}
-\choice 
-\choice 
-\choice 
-\choice 
-\choice 
+  \choice 1 kg 
+  \choice \(6.67\cdot10^{-11}\) N 
+  \choice 10 N 
+  \choice \(6.67\cdot10^{-11}\) kg 
 \end{choices}
 \vfill{}
-\ep
 
-\bp{1}
-\\
+\question Where do you weigh more: at the bottom of Death Valley or atop one of the peaks of the Sierra Nevada? Why?  
 \begin{choices}
-\choice 
-\choice 
-\choice 
-\choice 
-\choice 
+  \choice You weigh more on the summit, because the higher you go, the harder you fall. 
+  \choice You weigh more in Death Valley because more atmosphere pushes down on you. 
+  \choice You weigh more on the summit because the air buoys you up less. 
+  \choice You weigh more in Death Valley because you are closer to the center of Earth. 
 \end{choices}
 \vfill{}
-\ep
 
-\bp{1}
-\\
-\begin{choices}
-\choice 
-\choice 
-\choice 
-\choice 
-\choice 
-\end{choices}
-\vfill{}
-\ep
+\newpage{}
 
-\bp{1}
-\\
+\question  A projectile is launched vertically at 100 m/s. If air resistance can be ignored, at what speed will it return to its initial level? 
 \begin{choices}
-\choice 
-\choice 
-\choice 
-\choice 
-\choice 
+  \choice 100 m/s 
+  \choice 0 m/s 
+  \choice 10 m/s 
+  \choice 200 m/s 
 \end{choices}
 \vfill{}
-\ep
 
-\bp{1}
-\\
+\question Michael throws a stone upward at an angle. What happens to the horizontal component of its velocity as it rises? As it falls? 
 \begin{choices}
-\choice 
-\choice 
-\choice 
-\choice 
-\choice 
+  \choice It increases while rising, but it decreases while falling. 
+  \choice It increases while rising and while falling. 
+  \choice It decreases while rising, but it increases while falling. 
+  \choice Rising or falling, it does not change. 
 \end{choices}
 \vfill{}
-\ep
 
-\bp{1}
-\\
+\question Michael throws a stone upward at an angle. What happens to the magnitude of the vertical component of its velocity as it rises? As it falls? 
 \begin{choices}
-\choice 
-\choice 
-\choice 
-\choice 
-\choice 
+  \choice It decreases while rising, but it increases while falling. 
+  \choice It decreases while rising and while falling. 
+  \choice It increases while rising, but it decreases while falling. 
+  \choice Rising or falling, it does not change. 
 \end{choices}
 \vfill{}
-\ep
 
-\bp{1}
-\\
+\question Why doesn't the force of gravity change the speed of a satellite in circular orbit? 
 \begin{choices}
-\choice 
-\choice 
-\choice 
-\choice 
-\choice 
+  \choice Satellites orbit at a height where gravity is essentially zero. 
+  \choice The force is at a right angle to the velocity. 
+  \choice Air resistance counteracts the effects of gravity. 
+  \choice The inertia of the fast satellite is so great that gravity can be ignored. 
 \end{choices}
 \vfill{}
-\ep
 
-\bp{1}
-\\
+\question Aprile throws a cell phone horizontally from the Grand Canyon at a speed of 10 m/s. Alex predicts that its speed 1 s later will be slightly greater than 14 m/s. Baye says it will be 10 m/s. Who is correct?
 \begin{choices}
-\choice 
-\choice 
-\choice 
-\choice 
-\choice 
+  \choice Alex
+  \choice Baye
 \end{choices}
 \vfill{}
-\ep
 
-\bp{1}
-\\
+\question What prevents satellites such as the ISS from falling?
 \begin{choices}
-\choice 
-\choice 
-\choice 
-\choice 
-\choice 
+  \choice gravity
+  \choice the absence of air drag
+  \choice centripetal force
+  \choice nothing
+  \choice centrifugal force
 \end{choices}
 \vfill{}
-\ep
 
-\bp{1}
-\\
-\begin{choices}
-\choice 
-\choice 
-\choice 
-\choice 
-\choice 
-\end{choices}
-\vfill{}
-\ep
-
-\bp{1}
-\\
-\begin{choices}
-\choice 
-\choice 
-\choice 
-\choice 
-\choice 
-\end{choices}
-\vfill{}
-\ep
-
-\bp{1}
-\\
-\begin{choices}
-\choice 
-\choice 
-\choice 
-\choice 
-\choice 
-\end{choices}
-\vfill{}
-\ep
+\end{questions}
 
 \end{document}
