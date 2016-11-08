@@ -1,0 +1,106 @@
+\documentclass{article}
+\oddsidemargin=0in
+\evensidemargin=0in
+\textwidth=6.75in
+\parindent=0in
+\renewcommand{\baselinestretch}{1.5}
+\pagestyle{empty}
+\begin{document}
+\begin{center}
+  \Large{Intermediate electronics notes}
+\end{center}
+We began this lab with a goal of understanding waves in general.  Electricity, 
+sound, light, mechanical vibrations, and other phenomena feature wave behavior 
+and we can apply similar terminology and techniques to analyze them.
+\begin{itemize}
+
+\item \textbf{Wave terminology}
+  \begin{itemize}
+    \item \textbf{Amplitude} measures the `height' of the wave, the difference
+          between its minumum and maximum values. For example, the amplitude 
+          of a sound wave is related to its volume. Amplitude is usually 
+          written with the symbol and units of the quantity which is `waving' 
+          but a general wave amplitude is written $A$.
+    \item \textbf{Period} measures the time between similar points on the same
+          wave. Period is usually written $T$ and measured in seconds.
+    \item \textbf{Frequency} measures how many wiggles happen each second.
+          Frequency is usually written $f$ and measured in Hertz (Hz), which
+          is shorthand for inverse seconds ($\frac{1}{s}$).
+    \item It is often convenient to define \textbf{angular frequency}, $\omega$
+          (omega), measured in radians per second. Angular frequency is
+          related to regular frequency the equation $\omega = 2\pi\,f$.
+    \item Frequency is related to period by the equation $f=\frac{1}{T}$. 
+    \item When considering two waves of the same frequency, the 
+          \textbf{phase shift} measures the delay between similar points,
+          Phase shift is usually written $\phi$ (phi) and measured in degrees.
+          For example, if the time between two wave peaks is 1 second and the 
+          waves have a period of 4 seconds, then the phase shift is 90 degrees.
+    \item As a moving wave passes through space, its frequency and wave speed
+          cause periodic patterns in space. The distance between similar points
+          at a given moment of time is the \textbf{wavelength} usually written
+          $\lambda$ (lambda) and measured in meters.
+    \item Frequency, wave speed, and wavelength are related by the equation
+          $v = f\,\lambda$.
+    \item \textbf{Timbre}
+  \end{itemize}
+
+\item \textbf{The Fast Fourier Transform (FFT)}
+  \begin{itemize}
+    \item 
+  \end{itemize}
+
+\item \textbf{Fourier series for square wave}
+  \begin{itemize}
+    \item 
+  \end{itemize}
+
+\item \textbf{Response of a series RC circuit to AC}
+  \begin{itemize}
+    \item When an AC voltage is applied to a series RC circuit, the capacitor
+          voltage `lags' that of the source voltage, passing some current.
+    \item The degree to which the capacitor opposes the current flow depends
+          on the frequency of the applied voltage and the capacitance of the
+          capacitor.
+    \item
+  \end{itemize}
+
+\item \textbf{Magnetism}
+  \begin{itemize}
+    \item Permanent magnets has been known of since prehistory.
+          Electromagnetism was discovered by Oersted in 1820.
+          In fact, electromagnetism is simpler to understand so we start there.
+    \item \textbf{Magnetism results from current flow.} Whenever current flows,
+          a magnetic field is created.
+  \end{itemize}
+
+\item \textbf{Extending Ohm's Law}
+  \begin{itemize}
+    \item When current flows through a resistor, electrical energy is 
+          converted to heat and lost to the circuit. Moreover, the voltage 
+          across a resistor is directly proportional to the current through it.
+    \item Capacitors have a resistor-like behavior, in that the voltage 
+          across a capacitor is directly proportional to the current through it 
+          (though voltage and current are out of phase). Energy in a capacitor 
+          is not dissipated. Instead, it is stored in the electric field 
+          between the capacitor plates.
+    \item Inductors have a similar behavior- energy is stored in the magnetic 
+          field, resulting in a directly proportional relationship between 
+          applied voltage and current. Voltage and current are also out of phase
+          in an inductor.
+    \item Since energy is not lost in capacitors and inductors, the ratio of
+          voltage to current is not a resistance. We define a new term,
+          \textbf{reactance} for this idea.
+    \item The equation for \textbf{capacitive reactance} is 
+          $X_{C} = \frac{1}{2\pi\,f\,C}$ where $f$ is the frequency of the AC
+          and $C$ is the capacitance of the capacitor.
+    \item The equation for \textbf{inductive reactance} is 
+          $X_{L} = 2\pi\,f\,L$ where $f$ is the frequency of the AC and $L$ is
+          the inductance of the inductor.
+    \item Resistance and reactance can be combined into an \textbf{impedance}.
+          The ratio of the magnitude of voltage to magnitude of current is
+          $Z = \sqrt{R^{2} + (X_{L} - X_{C})^{2}}$ and the phase shift is
+          $\phi = \arctan \left ( \frac{X_{L}-X_{C}}{R} \right )$.
+  \end{itemize}
+
+\end{itemize}
+\end{document}
