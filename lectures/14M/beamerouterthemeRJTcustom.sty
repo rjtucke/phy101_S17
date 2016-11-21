@@ -1,0 +1,41 @@
+\ProvidesPackageRCS $Header: beamerouterthemephyASUlogo.sty,v 0.1 12/10/12 R. Tucker  $
+
+\mode<presentation> 
+\usefonttheme{serif}
+\setbeamercovered{transparent}
+\setbeamertemplate{navigation symbols}{}
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{../include/background.jpg}}
+
+\setbeamercolor*{title}{fg=black}
+%\setbeamercolor*{frametitle}{fg=black}
+%\setbeamersize{frametitle left=5em}
+
+\setbeamercolor*{author in head/foot}{fg=black}
+\setbeamercolor*{section in toc}{fg=black}
+\setbeamertemplate{itemize items}[ball]
+\setbeamertemplate{itemize subitems}[ball]
+\setbeamertemplate{section in toc}[ball unnumbered]
+\setbeamertemplate{subsection in toc}[ball unnumbered]
+
+\setbeamersize{text margin left=1.2em,text margin right=1.2em}
+
+\setbeamertemplate{frametitle} {
+  \begin{centering}
+    \raisebox{-2mm}{\textbf{\insertframetitle}}
+    \par
+  \end {centering}
+}
+
+\defbeamertemplate*{footline}{default theme ASU} {
+  \leavevmode%
+  \hbox{%
+  	\begin{beamercolorbox}[wd=\paperwidth,ht=3.4ex,dp=3.4ex, center]{author in head/foot}%
+        \hspace{0.9\textwidth}
+	\includegraphics[height=8mm]{../include/asu.jpg}
+       \end{beamercolorbox}%
+  }
+  \vskip0pt%
+}
+
+\mode
+<all>
