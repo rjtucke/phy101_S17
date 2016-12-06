@@ -1,4 +1,0 @@
-make participation/attendance chart
-build plickers questions
-02M lab
-02W homework (chapter 3) - check it
